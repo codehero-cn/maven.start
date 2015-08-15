@@ -9,19 +9,24 @@
 
 	<name>cmd</name>
 	<url>http://maven.apache.org</url>
-	
+
 	<!-- 一般都要设置，maven默认是GBK,否则有UTF8中文时会报错 -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
+	
+		
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
+		
 	</dependencies>
 	<build>
 
@@ -42,12 +47,12 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
+
 	</build>
-	
-	
+
+
 	<reporting>
-		<plugins>			
+		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -56,6 +61,9 @@
 		</plugins>
 	</reporting>
 
-	
+
 
 </project>
+
+
+
