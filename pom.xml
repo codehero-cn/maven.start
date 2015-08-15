@@ -15,21 +15,17 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
-	<dependencies>
-	
-		
-		
+	<dependencies>		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>
-		
-		
+		</dependency>		
 	</dependencies>
-	<build>
-
+	
+	<build>	
+		 <finalName>maven-demo</finalName> <!-- 超级pom中应有默认名字，此名可简化名字 -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -47,10 +43,8 @@
 				</configuration>
 			</plugin>
 		</plugins>
-
 	</build>
-
-
+  
 	<reporting>
 		<plugins>
 			<plugin>
@@ -58,12 +52,79 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.10.3</version>
 			</plugin>
+			
+			<!-- 显示源码 -->
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jxr-plugin</artifactId>
+			<version></version>  <!-- 20150820version -->
+			<configuration>
+				<aggregate>ture</aggregate> <!-- 当有聚合模块时整合所有的源码 -->
+			</configuration>
+			</plugin>
+			
 		</plugins>
 	</reporting>
-
-
-
 </project>
+<!-- 下面的要整理 -->
+<!-- 		<!-- eleven add start --> 
+<!-- 		<!-- <outputDirectory>${basedir}/WebContent/WEB-INF/classes</outputDirectory> --> 
+
+<!-- 		<resources> -->
+<!-- 			<resource> -->
+<!-- 				<directory>src/main/java</directory> -->
+<!-- 				<includes> -->
+<!-- 					<include>**/*.xml</include> -->
+<!-- 					<include>**/*.properties</include> -->
+<!-- 				</includes> -->
+<!-- 			</resource> -->
+<!-- 			<resource> -->
+<!-- 				<directory>src/main/resources</directory> -->
+<!-- 				<includes> -->
+<!-- 					<include>**/*.xml</include> -->
+<!-- 					<include>**/*.properties</include> -->
+<!-- 				</includes> -->
+<!-- 			</resource> -->
+<!-- 		</resources> -->
+
+<!-- 		<plugins> -->
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
+<!-- 				<version>2.9</version> -->
+<!-- 				<executions> -->
+<!-- 				<execution> -->
+<!-- 				<id>copy-dependencies</id> -->
+
+<!-- 				<goals> -->
+<!-- 				<goal>copy-dependencies</goal> -->
+<!-- 				</goals> -->
+<!-- 				<configuration> -->
+<!-- 				<outputDirectory>${basedir}/WEB-INF/lib</outputDirectory> -->
+<!-- 				eleven:以下jar包要排除掉，否则会与tomcat冲突 -->
+<!-- 				<excludeArtifactIds>servlet-api</excludeArtifactIds> -->
+<!-- 				<overWriteReleases>false</overWriteReleases> -->
+<!-- 				<overWriteSnapshots>false</overWriteSnapshots> -->
+<!-- 				<overWriteIfNewer>true</overWriteIfNewer> -->
+
+<!-- 				</configuration> -->
+<!-- 				</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
+
+<!-- 			<!-- 指定jdk版本 --> 
+<!-- 			<plugin> -->
+<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
+<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
+<!-- 				<configuration> -->
+<!-- 					<source>1.7</source> -->
+<!-- 					<target>1.7</target> -->
+<!-- 				</configuration> -->
+<!-- 			</plugin> -->
 
 
+<!-- 		</plugins> -->
+
+
+<!-- 		<!-- eleven add end --> 
 
