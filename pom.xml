@@ -1,18 +1,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>cn.codehero.javase</groupId>
 	<artifactId>cmd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>cmd</name>
-	<url>http://maven.apache.org</url>
-
-	<!-- 一般都要设置，maven默认是GBK,否则有UTF8中文时会报错 -->
+	<url>http://maven.apache.org</url>	
 	<properties>
+		<!-- 使用UTF-8读取所有源码及文档，一般都要设置，maven默认是GBK,否则有UTF8中文时会报错 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<!-- 使用UTF-8编码呈现站点html文档，更全便于国际化 -->
+		<project.reporting.outputEncodeing>UTF-8</project.reporting.outputEncodeing>
 	</properties>
 
 	<dependencies>		
@@ -23,6 +22,7 @@
 			<scope>test</scope>
 		</dependency>		
 	</dependencies>
+
 	
 	<build>	
 		 <finalName>maven-demo</finalName> <!-- 超级pom中应有默认名字，此名可简化名字 -->
@@ -57,7 +57,7 @@
 			<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-jxr-plugin</artifactId>
-			<version></version>  <!-- 20150820version -->
+			<version>2.5</version>  <!-- 20141102版本 -->
 			<configuration>
 				<aggregate>ture</aggregate> <!-- 当有聚合模块时整合所有的源码 -->
 			</configuration>
@@ -66,6 +66,9 @@
 		</plugins>
 	</reporting>
 </project>
+<!-- maven-license-plugin自动为所有Java文件的头部添加许可证声明  -->
+
+
 <!-- 下面的要整理 -->
 <!-- 		<!-- eleven add start --> 
 <!-- 		<!-- <outputDirectory>${basedir}/WebContent/WEB-INF/classes</outputDirectory> --> 
