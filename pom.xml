@@ -68,7 +68,6 @@
 </project>
 <!-- maven-license-plugin自动为所有Java文件的头部添加许可证声明  -->
 
-
 <!-- 下面的要整理 -->
 <!-- 		<!-- eleven add start --> 
 <!-- 		<!-- <outputDirectory>${basedir}/WebContent/WEB-INF/classes</outputDirectory> --> 
@@ -114,20 +113,6 @@
 <!-- 				</execution> -->
 <!-- 				</executions> -->
 <!-- 			</plugin> -->
-
-<!-- 			<!-- 指定jdk版本 --> 
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
-<!-- 				<configuration> -->
-<!-- 					<source>1.7</source> -->
-<!-- 					<target>1.7</target> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-
-
 <!-- 		</plugins> -->
-
-
 <!-- 		<!-- eleven add end --> 
 
