@@ -4,7 +4,8 @@
 	<groupId>cn.codehero.javase</groupId>
 	<artifactId>cmd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<!-- package方式:注意jar与war的区别 -->
+	<packaging>jar</packaging>  
 	<name>cmd</name>
 	<url>http://maven.apache.org</url>	
 	<properties>
@@ -33,7 +34,7 @@
 				<version>3.4</version>
 			</plugin>
 
-			<!-- 指定jdk版本 -->
+			<!-- 指定jdk编译器版本 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -47,6 +48,7 @@
   
 	<reporting>
 		<plugins>
+			<!-- javadoc插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -66,53 +68,80 @@
 		</plugins>
 	</reporting>
 </project>
+
+
+
+<!-- ++++++++++++start：spring开发用的依赖，eleven实测可用 ++++++++++++ --> 
+		<!-- jstl1.2后据说不要standard包 -->
+<!--  	
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.2.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>4.2.0.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.2.0.RELEASE</version>
+		</dependency>
+-->
+		<!-- 连接数据库要用 -->
+<!--  
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>4.2.0.RELEASE</version>
+		</dependency>
+-->
+		<!-- 集成hibernate要用 -->
+<!--		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>4.2.0.RELEASE</version>	
+		</dependency>
+
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.3.11.Final</version>
+		</dependency>
+		
+		<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>5.1.36</version>
+		</dependency>
+<!--
+		<!-- 好象会自动下载依赖common-io -->
+<!-- +++++++++++++++++end：spring开发用的依赖，eleven实测可用 +++++++++++++++++--> 
+
+<!-- 为完成 -->
 <!-- maven-license-plugin自动为所有Java文件的头部添加许可证声明  -->
-
-<!-- 下面的要整理 -->
-<!-- 		<!-- eleven add start --> 
-<!-- 		<!-- <outputDirectory>${basedir}/WebContent/WEB-INF/classes</outputDirectory> --> 
-
-<!-- 		<resources> -->
-<!-- 			<resource> -->
-<!-- 				<directory>src/main/java</directory> -->
-<!-- 				<includes> -->
-<!-- 					<include>**/*.xml</include> -->
-<!-- 					<include>**/*.properties</include> -->
-<!-- 				</includes> -->
-<!-- 			</resource> -->
-<!-- 			<resource> -->
-<!-- 				<directory>src/main/resources</directory> -->
-<!-- 				<includes> -->
-<!-- 					<include>**/*.xml</include> -->
-<!-- 					<include>**/*.properties</include> -->
-<!-- 				</includes> -->
-<!-- 			</resource> -->
-<!-- 		</resources> -->
-
-<!-- 		<plugins> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.apache.maven.plugins</groupId> -->
-<!-- 				<artifactId>maven-dependency-plugin</artifactId> -->
-<!-- 				<version>2.9</version> -->
-<!-- 				<executions> -->
-<!-- 				<execution> -->
-<!-- 				<id>copy-dependencies</id> -->
-
-<!-- 				<goals> -->
-<!-- 				<goal>copy-dependencies</goal> -->
-<!-- 				</goals> -->
-<!-- 				<configuration> -->
-<!-- 				<outputDirectory>${basedir}/WEB-INF/lib</outputDirectory> -->
-<!-- 				eleven:以下jar包要排除掉，否则会与tomcat冲突 -->
-<!-- 				<excludeArtifactIds>servlet-api</excludeArtifactIds> -->
-<!-- 				<overWriteReleases>false</overWriteReleases> -->
-<!-- 				<overWriteSnapshots>false</overWriteSnapshots> -->
-<!-- 				<overWriteIfNewer>true</overWriteIfNewer> -->
-
-<!-- 				</configuration> -->
-<!-- 				</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
-<!-- 		</plugins> -->
-<!-- 		<!-- eleven add end --> 
-
+<!-- 有拷贝的插件，可以指定排除文件 -->
