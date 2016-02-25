@@ -3,9 +3,9 @@
   <groupId>cn.codehero.javase</groupId>
   <artifactId>cmd</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <!-- 以上为pom.xml文件常用头部 -->	
+
   <name>cmd</name>  
-  <!-- 以上为pom.xml文件常用头部 -->
-                  		            	
   <!-- package方式:注意jar与war的区别 -->
   <packaging>jar</packaging>  
   <url>http://maven.apache.org</url>	
