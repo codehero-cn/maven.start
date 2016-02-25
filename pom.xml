@@ -1,27 +1,27 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>cn.codehero.javase</groupId>
-	<artifactId>cmd</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<!-- package方式:注意jar与war的区别 -->
-	<packaging>jar</packaging>  
-	<name>cmd</name>
-	<url>http://maven.apache.org</url>	
-	<properties>
-		<!-- 使用UTF-8读取所有源码及文档，一般都要设置，maven默认是GBK,否则有UTF8中文时会报错 -->
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<!-- 使用UTF-8编码呈现站点html文档，更全便于国际化 -->
-		<project.reporting.outputEncodeing>UTF-8</project.reporting.outputEncodeing>
-	</properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.codehero.javase</groupId>
+  <artifactId>cmd</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>cmd</name>  
+                		            	
+  <!-- package方式:注意jar与war的区别 -->
+  <packaging>jar</packaging>  
+  <url>http://maven.apache.org</url>	
+  <properties>
+    <!-- 使用UTF-8读取所有源码及文档，一般都要设置，maven默认是GBK,否则有UTF8中文时会报错 -->
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<!-- 使用UTF-8编码呈现站点html文档，更全便于国际化 -->
+	<project.reporting.outputEncodeing>UTF-8</project.reporting.outputEncodeing>
+  </properties>
 
-	<dependencies>		
+	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
-		</dependency>		
+		</dependency>
 	</dependencies>
 
 	
@@ -68,8 +68,6 @@
 		</plugins>
 	</reporting>
 </project>
-
-
 
 <!-- ++++++++++++start：spring开发用的依赖，eleven实测可用 ++++++++++++ --> 
 		<!-- jstl1.2后据说不要standard包 -->
