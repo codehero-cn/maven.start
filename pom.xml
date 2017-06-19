@@ -144,3 +144,52 @@
 <!-- 为完成 -->
 <!-- maven-license-plugin自动为所有Java文件的头部添加许可证声明  -->
 <!-- 有拷贝的插件，可以指定排除文件 -->
+<!-- 
+<build>     
+        <outputDirectory>${basedir}/WEB-INF/classes</outputDirectory>
+
+        <resources>
+        <resource>
+        <directory>src/main/java</directory>
+        <includes>
+            <include>**/*.xml</include>
+            <include>**/*.properties</include>
+        </includes>
+        </resource>
+        <resource>
+        <directory>src/main/resources</directory>
+        <includes>
+        <include>**/*.xml</include>
+        <include>**/*.properties</include>
+        </includes>
+        </resource>
+         </resources>   
+         
+          <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.9</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/WEB-INF/lib</outputDirectory>
+              <!-- eleven:以下jar包要排除掉，否则会与tomcat冲突 -->
+              <!-- 
+              <excludeArtifactIds>servlet-api</excludeArtifactIds>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+              
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+ -->
+
+
