@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>cn.codehero.javase</groupId>
-  <artifactId>cmd</artifactId>
+  <artifactId>maven.start</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <!-- 以上为pom.xml文件常用头部 -->	
 
@@ -14,6 +14,11 @@
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<!-- 使用UTF-8编码呈现站点html文档，更全便于国际化 -->
 	<project.reporting.outputEncodeing>UTF-8</project.reporting.outputEncodeing>
+	<!-- 用属性的方法来配置版本 -->
+	 <hibernate.version>4.3.8.Final</hibernate.version>
+     <spring.version>4.1.4.RELEASE</spring.version>
+     <mysql.connector.version>5.1.31</mysql.connector.version>
+	
   </properties>
 
 	<dependencies>
@@ -89,23 +94,25 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>4.2.0.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.2.0.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.2.0.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 -->
 		<!-- 连接数据库要用 -->
 <!--  
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -117,7 +124,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
-			<version>4.2.0.RELEASE</version>	
+			<version>${spring.version}</version>	
 		</dependency>
 
 		<dependency>
@@ -125,20 +132,30 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3.1</version>
 		</dependency>
-
+        
+        <!- DB related dependencies -->
+        <!-- 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.3.11.Final</version>
+			<version>${hibernate.version}</version>
 		</dependency>
+		
+		<dependencies>
+        <dependency>
+                <groupId>com.mchange</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>0.9.2.1</version>
+                <scope>compile</scope>
+        </dependency>
 		
 		<dependency>
 		<groupId>mysql</groupId>
 		<artifactId>mysql-connector-java</artifactId>
-		<version>5.1.36</version>
+		<version>${mysql.connector.version}</version>
 		</dependency>
-<!--
-		<!-- 好象会自动下载依赖common-io -->
+<!-
+		<!- 好象会自动下载依赖common-io -->
 <!-- +++++++++++++++++end：spring开发用的依赖，eleven实测可用 +++++++++++++++++--> 
 
 <!-- 为完成 -->
@@ -179,7 +196,7 @@
             </goals>
             <configuration>
               <outputDirectory>${basedir}/WEB-INF/lib</outputDirectory>
-              <!-- eleven:以下jar包要排除掉，否则会与tomcat冲突 -->
+              <!- eleven:以下jar包要排除掉，否则会与tomcat冲突 -->
               <!-- 
               <excludeArtifactIds>servlet-api</excludeArtifactIds>
               <overWriteReleases>false</overWriteReleases>
@@ -191,5 +208,65 @@
         </executions>
       </plugin>
  -->
+ <!-- 
+        <dependency>
+                <groupId>org.apache.tomcat</groupId>
+                <artifactId>servlet-api</artifactId>
+                <version>6.0.43</version>
+        </dependency>   
+         
+        <dependency>  
+                <groupId>org.freemarker</groupId>  
+                <artifactId>freemarker</artifactId>  
+                <version>2.3.19</version>  
+        </dependency>
 
+    <build>     
+        <outputDirectory>${basedir}/WEB-INF/classes</outputDirectory>
 
+        <resources>
+            <resource>
+            <directory>src/main/java</directory>
+            <includes>
+                <include>**/*.xml</include>
+                <include>**/*.properties</include>
+            </includes>
+            </resource>
+            
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                <include>**/*.xml</include>
+                <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>    
+         
+        <plugins>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.9</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/WEB-INF/lib</outputDirectory>
+              <!- eleven:以下jar包要排除掉，否则会与tomcat冲突 -->
+              <!-- 
+              <excludeArtifactIds>servlet-api</excludeArtifactIds>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>false</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+              
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+        
+ -->
